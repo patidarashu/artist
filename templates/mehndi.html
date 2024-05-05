@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Mehndi{% endblock %}
+{% block content %}
+<style>
+    .container {
+        padding-top: 60px; /* Adjust as needed */
+    }
+    .card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .mehndi {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .mehndi .design {
+        margin: 10px;
+        text-align: center;
+    }
+
+    .mehndi img {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container">
+    <h1>Mehndi Designs</h1>
+    <div class="card">
+        <h2>Intricate Patterns</h2>
+        <div class="mehndi">
+            <div class="design">
+                <img src="{{ url_for('static', filename='image/mehndi1.jpg') }}">
+                <p>Design 1</p>
+            </div>
+            <div class="design">
+                <img src="{{ url_for('static', filename='image/mehndi2.jpg') }}">
+                <p>Design 2</p>
+            </div>
+            <div class="design">
+                <img src="{{ url_for('static', filename='image/mehndi3.jpg') }}">
+                <p>Design 3</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

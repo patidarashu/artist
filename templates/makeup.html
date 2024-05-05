@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Makeup{% endblock %}
+{% block content %}
+<style>
+    .card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .makeup {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .makeup .style {
+        margin: 10px;
+        text-align: center;
+    }
+
+    .makeup img {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container">
+    <h1>Makeup Styles</h1>
+    <div class="card">
+        <h2>Latest Trends</h2>
+        <div class="makeup">
+            <div class="style">
+                <img src="{{ url_for('static', filename='image/makeup1.jpg') }}">
+                <p>Style 1</p>
+            </div>
+            <div class="style">
+                <img src="{{ url_for('static', filename='image/makeup2.jpg') }}">
+                <p>Style 2</p>
+            </div>
+            <div class="style">
+                <img src="{{ url_for('static', filename='image/makeup3.jpg') }}">
+                <p>Style 3</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

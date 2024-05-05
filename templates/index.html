@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+/* Styles for the fixed navigation bar */
+/* Styles for the fixed navigation bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Styles for the slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    margin: 80px auto 20px; /* Adjusted margin to make space for the fixed navbar */
+    padding-top: 20px;
+}
+    .mySlides {
+        display: none;
+    }
+
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+
+    .card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .work {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .work img {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container">
+    <h1>Welcome to the Artist's Portfolio!</h1>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="{{ url_for('static', filename='image/image1.jpg') }}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{{ url_for('static', filename='image/image2.jpg') }}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{{ url_for('static', filename='image/image3.jpg') }}" style="width:100%">
+        </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    <div class="card">
+        <h2>About the Artist</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae mauris euismod, tincidunt justo eget, aliquam metus. Vivamus nec turpis in nisi semper fermentum.</p>
+    </div>
+    <div class="card">
+        <h2>Featured Works</h2>
+        <div class="work">
+            <img src="{{ url_for('static', filename='image/work1.jpg') }}">
+            <p>Work 1</p>
+        </div>
+        <div class="work">
+            <img src="{{ url_for('static', filename='image/work2.jpg') }}">
+            <p>Work 2</p>
+        </div>
+        <div class="work">
+            <img src="{{ url_for('static', filename='image/work3.jpg') }}">
+            <p>Work 3</p>
+        </div>
+    </div>
+</div>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
+
+{% endblock %}

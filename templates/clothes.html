@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Clothes{% endblock %}
+{% block content %}
+<style>
+     .container {
+        padding-top: 60px; /* Adjust as needed */
+    }
+    
+    .card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .clothes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .clothes .item {
+        margin: 10px;
+        text-align: center;
+    }
+
+    .clothes img {
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container">
+    <h1>Clothing Collection</h1>
+    <div class="card">
+        <h2>Latest Designs</h2>
+        <div class="clothes">
+            <div class="item">
+                <img src="{{ url_for('static', filename='image/clothes1.jpg') }}">
+                <p>Design 1</p>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='image/clothes2.jpg') }}">
+                <p>Design 2</p>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='image/clothes3.jpg') }}">
+                <p>Design 3</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
